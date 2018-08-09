@@ -38,13 +38,13 @@ class RegisterOldcpskSidebar implements \Maatwebsite\Sidebar\SidebarExtender
     {
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('oldcpsk::oldcpsks.title.oldcpsks'), function (Item $item) {
-                $item->icon('fa fa-copy');
+                $item->icon('fa fa-users');
                 $item->weight(10);
                 $item->authorize(
                      /* append */
                 );
                 $item->item(trans('oldcpsk::students.title.students'), function (Item $item) {
-                    $item->icon('fa fa-copy');
+                    $item->icon('fa fa-users');
                     $item->weight(0);
                     $item->append('admin.oldcpsk.student.create');
                     $item->route('admin.oldcpsk.student.index');

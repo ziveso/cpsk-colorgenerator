@@ -38,13 +38,13 @@ class RegisterFirstyearinfoSidebar implements \Maatwebsite\Sidebar\SidebarExtend
     {
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('firstyearinfo::firstyearinfos.title.firstyearinfos'), function (Item $item) {
-                $item->icon('fa fa-copy');
+                $item->icon('fa fa-info');
                 $item->weight(10);
                 $item->authorize(
                      /* append */
                 );
                 $item->item(trans('firstyearinfo::students.title.students'), function (Item $item) {
-                    $item->icon('fa fa-copy');
+                    $item->icon('fa fa-info');
                     $item->weight(0);
                     $item->append('admin.firstyearinfo.student.create');
                     $item->route('admin.firstyearinfo.student.index');

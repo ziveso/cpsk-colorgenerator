@@ -38,13 +38,13 @@ class RegisterColorgeneratorSidebar implements \Maatwebsite\Sidebar\SidebarExten
     {
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('colorgenerator::colorgenerators.title.colorgenerators'), function (Item $item) {
-                $item->icon('fa fa-copy');
+                $item->icon('fa fa-user-plus');
                 $item->weight(10);
                 $item->authorize(
                      /* append */
                 );
                 $item->item(trans('colorgenerator::students.title.students'), function (Item $item) {
-                    $item->icon('fa fa-copy');
+                    $item->icon('fa fa-user-plus');
                     $item->weight(0);
                     $item->append('admin.colorgenerator.student.create');
                     $item->route('admin.colorgenerator.student.index');
