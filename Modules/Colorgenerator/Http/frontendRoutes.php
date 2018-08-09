@@ -8,5 +8,5 @@ $router->group(['prefix' =>'/colorgenerator'], function (Router $router) {
     $router->get('/',[
         'uses' => '',
         'as' => ''
-    ])
+    ]);
 });

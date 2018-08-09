@@ -2,6 +2,6 @@
 
 return [
     'title' => [
-        'colorgenerators' => 'CPSK'
+        'colorgenerators' => '1st year CPSK'
     ]
 ];

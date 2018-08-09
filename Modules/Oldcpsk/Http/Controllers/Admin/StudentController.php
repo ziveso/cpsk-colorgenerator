@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Colorgenerator\Http\Controllers\Admin;
+namespace Modules\Oldcpsk\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\Colorgenerator\Entities\Student;
-use Modules\Colorgenerator\Http\Requests\CreateStudentRequest;
-use Modules\Colorgenerator\Http\Requests\UpdateStudentRequest;
-use Modules\Colorgenerator\Repositories\StudentRepository;
+use Modules\Oldcpsk\Entities\Student;
+use Modules\Oldcpsk\Http\Requests\CreateStudentRequest;
+use Modules\Oldcpsk\Http\Requests\UpdateStudentRequest;
+use Modules\Oldcpsk\Repositories\StudentRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 class StudentController extends AdminBaseController
@@ -33,7 +33,7 @@ class StudentController extends AdminBaseController
     {
         $students = $this->student->all();
 
-        return view('colorgenerator::admin.students.index', compact('students'));
+        return view('oldcpsk::admin.students.index', compact('students'));
     }
 
     /**
@@ -43,7 +43,7 @@ class StudentController extends AdminBaseController
      */
     public function create()
     {
-        return view('colorgenerator::admin.students.create');
+        return view('oldcpsk::admin.students.create');
     }
 
     /**
@@ -56,8 +56,8 @@ class StudentController extends AdminBaseController
     {
         $this->student->create($request->all());
 
-        return redirect()->route('admin.colorgenerator.student.index')
-            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('colorgenerator::students.title.students')]));
+        return redirect()->route('admin.oldcpsk.student.index')
+            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('oldcpsk::students.title.students')]));
     }
 
     /**
@@ -68,7 +68,7 @@ class StudentController extends AdminBaseController
      */
     public function edit(Student $student)
     {
-        return view('colorgenerator::admin.students.edit', compact('student'));
+        return view('oldcpsk::admin.students.edit', compact('student'));
     }
 
     /**
@@ -82,8 +82,8 @@ class StudentController extends AdminBaseController
     {
         $this->student->update($student, $request->all());
 
-        return redirect()->route('admin.colorgenerator.student.index')
-            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('colorgenerator::students.title.students')]));
+        return redirect()->route('admin.oldcpsk.student.index')
+            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('oldcpsk::students.title.students')]));
     }
 
     /**
@@ -96,7 +96,7 @@ class StudentController extends AdminBaseController
     {
         $this->student->destroy($student);
 
-        return redirect()->route('admin.colorgenerator.student.index')
-            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('colorgenerator::students.title.students')]));
+        return redirect()->route('admin.oldcpsk.student.index')
+            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('oldcpsk::students.title.students')]));
     }
 }
