@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Colorgenerator\Providers;
+namespace Modules\Firstyearinfo\Providers;
 
 use Modules\Core\Providers\RoutingServiceProvider as CoreRoutingServiceProvider;
 
@@ -10,14 +10,14 @@ class RouteServiceProvider extends CoreRoutingServiceProvider
      * The root namespace to assume when generating URLs to actions.
      * @var string
      */
-    protected $namespace = 'Modules\Colorgenerator\Http\Controllers';
+    protected $namespace = 'Modules\Firstyearinfo\Http\Controllers';
 
     /**
      * @return string
      */
     protected function getFrontendRoute()
     {
-        return __DIR__ . '/../Http/frontendRoutes.php';
+        return false;
     }
 
     /**

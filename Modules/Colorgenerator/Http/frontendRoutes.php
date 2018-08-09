@@ -6,7 +6,12 @@ use Illuminate\Routing\Router;
 $router->group(['prefix' =>'/colorgenerator'], function (Router $router) {
     // append
     $router->get('/',[
-        'uses' => '',
-        'as' => ''
+        'uses' => 'PublicController@test',
+        'as' => 'generator.test'
+    ]);
+
+    $router->post('/create',[
+        'uses' => 'PublicController@create',
+        'as' => 'color.create'
     ]);
 });

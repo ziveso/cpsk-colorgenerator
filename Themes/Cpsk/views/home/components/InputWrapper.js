@@ -6,15 +6,11 @@ import { observer } from 'mobx-react'
 export class InputWrapper extends React.Component {
     handleChange(e) {
         this.props.store.studentId = e.target.value
-        if(e.which===13) {
-            this.handleSubmit()
-        }
     }
 
     handleSubmit() {
-        // generate
         this.props.store.generateColor()
-        this.props.store.studentId = 0
+        this.props.store.studentId = ''
     }
     
     render() {
@@ -22,7 +18,7 @@ export class InputWrapper extends React.Component {
             <div>
                 <div id='inputWrapper' className='center-on-screen'>
                     <div>
-                        <input type='value' placeholder='STUDENT ID' onKeyPress={this.handleChange.bind(this)}/>
+                        <input type='value' placeholder='STUDENT ID' onChange={this.handleChange.bind(this)} value={this.props.store.studentId}/>
                     </div>
                     <div>
                         <button onClick={this.handleSubmit.bind(this)}>SUBMIT</button>

@@ -13,6 +13,7 @@ export class App extends React.Component {
                     <h1>{ siteName }</h1> {/* eslint-disable-line */} {/* variable from blade php  */}
                 </div>
                 <h1 className='text-center'>{ this.props.store.isGenerated ? 'Complete' : 'Generating' }</h1>
+                {/* <h1>ยินดีด้วย น้อง { this.props.store.lastGenerated.name } ได้อยู่มุ้ง { this.props.store.lastGenerated.color }</h1> */}
                 <Rainbow />
                 <InputWrapper store={this.props.store}/>
             </div>

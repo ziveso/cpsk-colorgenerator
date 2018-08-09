@@ -1,0 +1,17 @@
+{
+    "name": "Firstyearinfo",
+    "alias": "firstyearinfo",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Firstyearinfo\\Providers\\FirstyearinfoServiceProvider",
+        "Modules\\Firstyearinfo\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

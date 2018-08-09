@@ -1,14 +1,31 @@
-import { observable, computed } from 'mobx'
+import { observable } from 'mobx'
+import Axios from 'axios'
 
+class LastGenerated {
+    constructor(name,color) {
+        this.name = name
+        this.color = color
+    }
+}
 class StudentStore {
-    @observable studentId = 0
+    @observable studentId = ''
     @observable isGenerated = true
-    generateColor() {
-        alert(this.studentId)
+    @observable lastGenerated = new LastGenerated('','')
+    
+    async generateColor() {
+        // check if studentid match ?
+
         this.isGenerated = false
         // fetch color from server
-        this.isGenerated = true
         // done
+        await Axios.post(createApi, {
+            data: {
+                studentId: this.studentId
+            }
+        }).then( (res) => {
+            this.lastGenerated = new LastGenerated(res.data.name,res.data.color)
+        } ).catch( (err) => console.log(err))
+        this.isGenerated = true
     }
 }
 
