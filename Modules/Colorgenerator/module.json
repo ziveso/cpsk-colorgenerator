@@ -1,0 +1,17 @@
+{
+    "name": "Colorgenerator",
+    "alias": "colorgenerator",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Colorgenerator\\Providers\\ColorgeneratorServiceProvider",
+        "Modules\\Colorgenerator\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

@@ -1,0 +1,33 @@
+.center-on-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    max-width: 500px;
+}
+
+#inputWrapper input {
+    /* background: black; */
+    text-align: center;
+    width: 100%;
+    font-size: 3rem;
+    border-radius: 10px;
+}
+
+#inputWrapper button {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    background: #ea3933;
+    color: white;
+    border: 1px solid black;
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+#inputWrapper button:hover {
+    background: #ecfc76;
+    text-shadow: 0 0 15px black;
+    transition: 0.5s ease-in-out;
+}

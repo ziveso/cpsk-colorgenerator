@@ -1,0 +1,10 @@
+body {
+    background: cyan;
+}
+
+.header {
+    display: inline-block;
+    width: 100%;
+    color: white;
+    background: rgb(193, 24, 199);
+}
