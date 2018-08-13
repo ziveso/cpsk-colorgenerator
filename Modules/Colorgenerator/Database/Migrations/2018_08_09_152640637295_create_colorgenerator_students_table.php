@@ -16,7 +16,7 @@ class CreateColorgeneratorStudentsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             // Your fields
-            $table->integer('studentId')->unsigned()->nullable();
+            $table->string('studentId');
             $table->string('color')->nullable();
             $table->enum('gender',['male','female']);
             $table->timestamps();

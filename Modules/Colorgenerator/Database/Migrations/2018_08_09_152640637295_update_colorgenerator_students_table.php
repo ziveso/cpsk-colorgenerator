@@ -13,7 +13,6 @@ class UpdateColorgeneratorStudentsTable extends Migration
     public function up()
     {
         Schema::table('colorgenerator__students', function (Blueprint $table) {
-            $table->string('name');
             $table->enum('type',['CPE','SKE']);
         });
     }
