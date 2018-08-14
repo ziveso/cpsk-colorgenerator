@@ -41,9 +41,9 @@ class PublicController extends BasePublicController
         }
 
         // generate color here
-        $diffcolor = 30;
-        $difftype = 15;
-        $diffgender = 10;
+        $diffcolor = 50;
+        $difftype = 10;
+        $diffgender = 30;
 
         // initialize droprate
         $rate = [];
@@ -62,20 +62,24 @@ class PublicController extends BasePublicController
         // make balance gender
         foreach($rate as $r => $value) {
             if($gender === 'male' && $currentColor[$r]['male'] > $currentColor[$r]['female']){
-                $rate[$r] -= ($currentColor[$r]['male'] - $currentColor[$r]['female']) * $diffgender;
+                // $rate[$r] -= ($currentColor[$r]['male'] - $currentColor[$r]['female']) * $diffgender;
+                $rate[$r] -= $diffgender;
             }
             if($gender === 'female' && $currentColor[$r]['male'] < $currentColor[$r]['female']) {
-                $rate[$r] -= ($currentColor[$r]['female'] - $currentColor[$r]['male']) * $diffgender;
+                // $rate[$r] -= ($currentColor[$r]['female'] - $currentColor[$r]['male']) * $diffgender;
+                $rate[$r] -= $diffgender;
             }
         }
 
         // make balance type
         foreach($rate as $r => $value) {
             if($type === 'CPE' && $currentColor[$r]['cpe'] > $currentColor[$r]['ske']){
-                $rate[$r] -= ($currentColor[$r]['cpe'] - $currentColor[$r]['ske']) * $difftype;
+                // $rate[$r] -= ($currentColor[$r]['cpe'] - $currentColor[$r]['ske']) * $difftype;
+                $rate[$r] -= $difftype;
             }
             if($type === 'SKE' && $currentColor[$r]['ske'] < $currentColor[$r]['cpe']) {
-                $rate[$r] -= ($currentColor[$r]['ske'] - $currentColor[$r]['cpe']) * $difftype;
+                // $rate[$r] -= ($currentColor[$r]['ske'] - $currentColor[$r]['cpe']) * $difftype;
+                $rate[$r] -= $difftype;
             }
         }
 
