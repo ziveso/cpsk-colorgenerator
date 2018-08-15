@@ -15,6 +15,9 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header">
+                    <div class="text-right">
+                    <a href={{ route('student.download') }}>Download</a>
+                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">

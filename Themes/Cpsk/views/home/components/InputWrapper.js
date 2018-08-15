@@ -12,13 +12,19 @@ export class InputWrapper extends React.Component {
         this.props.store.generateColor()
         this.props.store.studentId = ''
     }
+
+    handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            this.handleSubmit();
+        }
+    }
     
     render() {
         return (
             <div>
                 <div id='inputWrapper' className='center-on-screen'>
                     <div>
-                        <input type='value' placeholder='STUDENT ID' onChange={this.handleChange.bind(this)} value={this.props.store.studentId}/>
+                        <input type='value' placeholder='STUDENT ID' onKeyPress={this.handleKeyPress.bind(this)} onChange={this.handleChange.bind(this)} value={this.props.store.studentId}/>
                     </div>
                     <div>
                         <button onClick={this.handleSubmit.bind(this)}>SUBMIT</button>

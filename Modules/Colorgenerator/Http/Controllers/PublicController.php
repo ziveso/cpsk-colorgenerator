@@ -5,6 +5,8 @@ namespace Modules\Colorgenerator\Http\Controllers;
 use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\BasePublicController;
 use Modules\Colorgenerator\Repositories\StudentRepository;
+use Modules\Colorgenerator\Entities\Student;
+use Excel;
 
 class PublicController extends BasePublicController
 {
@@ -42,8 +44,8 @@ class PublicController extends BasePublicController
 
         // generate color here
         $diffcolor = 50;
-        $difftype = 10;
-        $diffgender = 30;
+        $difftype = 30;
+        // $diffgender = 30;
 
         // initialize droprate
         $rate = [];
@@ -59,16 +61,32 @@ class PublicController extends BasePublicController
             $rate[$r] -= ($currentColor[$r]['total'] - $minPeople) * $diffcolor;
         }
 
+        $minfemale = 999;
+        foreach($currentColor as $c) {
+            if($c['female'] < $minfemale) {
+                $minfemale = $c['female'];
+            }
+        }
+
+        $maxfemale = $minfemale <= 3 ? 3 : $minfemale + 1;
+
         // make balance gender
         foreach($rate as $r => $value) {
-            if($gender === 'male' && $currentColor[$r]['male'] > $currentColor[$r]['female']){
-                // $rate[$r] -= ($currentColor[$r]['male'] - $currentColor[$r]['female']) * $diffgender;
-                $rate[$r] -= $diffgender;
+
+            if($gender==='female') {
+                if($currentColor[$r]['female'] - $maxfemale === 0) {
+                    $rate[$r] -= 100;
+                }
             }
-            if($gender === 'female' && $currentColor[$r]['male'] < $currentColor[$r]['female']) {
-                // $rate[$r] -= ($currentColor[$r]['female'] - $currentColor[$r]['male']) * $diffgender;
-                $rate[$r] -= $diffgender;
-            }
+
+            // if($gender === 'male' && $currentColor[$r]['male'] > $currentColor[$r]['female'] * 3){
+            //     $rate[$r] -= ($currentColor[$r]['male'] - ($currentColor[$r]['female'] * 3)) * $diffgender;
+            //     // $rate[$r] -= $diffgender;
+            // }
+            // if($gender === 'female' && $currentColor[$r]['male'] < $currentColor[$r]['female'] * 3) {
+            //     $rate[$r] -= (($currentColor[$r]['female'] * 3) - $currentColor[$r]['male']) * $diffgender;
+            //     // $rate[$r] -= $diffgender;
+            // }
         }
 
         // make balance type
@@ -125,7 +143,7 @@ class PublicController extends BasePublicController
         $data['name'] = $studentid;
         $data['color'] = $color;
 
-        dd($rate,$data,$student);
+        dd($rate,$data,$student,$randValue);
         return $data;
     }
 
@@ -147,5 +165,9 @@ class PublicController extends BasePublicController
         }
 
         return $data;
+    }
+
+    public function download() {
+        return Excel::download(new Student, 'studentdata.xlsx');
     }
 }
