@@ -3,9 +3,9 @@
     max-width: 500px;
     height: 20vh;
     max-height: 500px;
-    margin: auto;
+    margin-left: 12.5%;
     margin-top: 5%;
-    background: lightgreen;
+    background: #e1abfc;
     position: relative;
 }
 
@@ -15,7 +15,7 @@
 
 .welcome-box.in-active {
     opacity: 0;
-    transition: 5s ease-in-out
+    transition: 5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 .welcome-text {
@@ -23,4 +23,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    font-size: 2rem;
+}
+
+@media (max-width:768px) {
+    .welcome-box {
+        margin: auto;
+        /* max-width: 100%; */
+    }
 }

@@ -25,8 +25,8 @@
                         <table class="data-table table table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>id</th>
                                 <th>student id</th>
-                                <th>name</th>
                                 <th>type</th>
                                 <th>color</th>
                                 <th>{{ trans('core::core.table.created at') }}</th>
@@ -39,12 +39,12 @@
                             <tr>
                                 <td>
                                     <a href="{{ route('admin.colorgenerator.student.edit', [$student->id]) }}">
-                                        {{ $student->studentId }}
+                                        {{ $student->id }}
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.colorgenerator.student.edit', [$student->id]) }}">
-                                        {{ $student->name }}
+                                        {{ $student->studentId }}
                                     </a>
                                 </td>
                                 <td>
@@ -74,8 +74,8 @@
                             </tbody>
                             <tfoot>
                             <tr>
+                                <th>id</th>
                                 <th>student id</th>
-                                <th>name</th>
                                 <th>type</th>
                                 <th>color</th>
                                 <th>{{ trans('core::core.table.created at') }}</th>

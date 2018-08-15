@@ -2,21 +2,21 @@
     position: fixed;
     left: -10%;
     width: 300vw;
-    height: 200vh;
+    height: 1500px;
     border-radius: 50%;
 }
 
 #rainbow-1 {
-    top: 20%;
-    border: 10px solid purple;
+    top: calc(20% - 3px);
+    border: 10px solid brown;
 }
 #rainbow-2 {
     top: calc(20% + 7px);
-    border: 10px solid blue;
+    border: 10px solid orange;
 }
 #rainbow-3 {
     top: calc(20% + 17px);
-    border: 10px solid cyan;
+    border: 10px solid blue;
 }
 #rainbow-4 {
     top: calc(20% + 27px);
@@ -28,9 +28,9 @@
 }
 #rainbow-6 {
     top: calc(20% + 47px);
-    border: 10px solid orange;
-}
-#rainbow-7 {
-    top: calc(20% + 57px);
     border: 10px solid red;
 }
+/* #rainbow-7 {
+    top: calc(20% + 57px);
+    border: 10px solid red;
+} */

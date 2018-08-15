@@ -18,21 +18,7 @@
             <div class="nav-tabs-custom">
                 @include('partials.form-tab-headers')
                 <div class="tab-content">
-                    <div class="row">
-                        <div class="col-md-6">
-                            TODO
-                        </div>
-                        <div class="col-md-6">
-
-                        </div>
-                        <div class="col-md-6">
-
-                        </div>
-                        <div class="col-md-6">
-
-                        </div>
-                    </div>
-
+                    <h1>Unable to edit</h1>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.update') }}</button>
                         <a class="btn btn-danger pull-right btn-flat" href="{{ route('admin.colorgenerator.student.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>

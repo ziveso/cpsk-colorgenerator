@@ -9,22 +9,23 @@ class LastGenerated {
 }
 class StudentStore {
     @observable studentId = ''
+    @observable firstCome = true
     @observable isGenerated = true
     @observable lastGenerated = new LastGenerated('','')
+    @observable history = []
     
     async generateColor() {
-        // check if studentid match ?
-
+        this.firstCome = false
         this.isGenerated = false
-        // fetch color from server
-        // done
         await Axios.post(createApi, {
             data: {
                 studentId: this.studentId
             }
         }).then( (res) => {
             this.lastGenerated = new LastGenerated(res.data.name,res.data.color)
+            this.history.push(this.lastGenerated)
         } ).catch( (err) => console.log(err))
+
         this.isGenerated = true
     }
 }

@@ -11,7 +11,7 @@ export class Rainbow extends React.Component {
                 <div id='rainbow-4' className='rainbow'/>
                 <div id='rainbow-5' className='rainbow'/>
                 <div id='rainbow-6' className='rainbow'/>
-                <div id='rainbow-7' className='rainbow'/>
+                {/* <div id='rainbow-7' className='rainbow'/> */}
             </div>
         )
     }

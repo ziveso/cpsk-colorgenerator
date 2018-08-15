@@ -78,15 +78,6 @@ class PublicController extends BasePublicController
                     $rate[$r] -= 100;
                 }
             }
-
-            // if($gender === 'male' && $currentColor[$r]['male'] > $currentColor[$r]['female'] * 3){
-            //     $rate[$r] -= ($currentColor[$r]['male'] - ($currentColor[$r]['female'] * 3)) * $diffgender;
-            //     // $rate[$r] -= $diffgender;
-            // }
-            // if($gender === 'female' && $currentColor[$r]['male'] < $currentColor[$r]['female'] * 3) {
-            //     $rate[$r] -= (($currentColor[$r]['female'] * 3) - $currentColor[$r]['male']) * $diffgender;
-            //     // $rate[$r] -= $diffgender;
-            // }
         }
 
         // make balance type
@@ -142,8 +133,7 @@ class PublicController extends BasePublicController
         $data = [];
         $data['name'] = $studentid;
         $data['color'] = $color;
-
-        dd($rate,$data,$student,$randValue);
+        
         return $data;
     }
 
@@ -151,10 +141,6 @@ class PublicController extends BasePublicController
         $colors = ['น้ำตาล','แสด','น้ำเงิน','เขียว','เหลือง','แดง'];
         $data = [];
         foreach($colors as $color) {
-            // $CPEMALE = $this->students->allWithBuilder()->where('color', $color)->where('type','CPE')->where('gender','male')->count();
-            // $CPEFEMALE = $this->students->allWithBuilder()->where('color', $color)->where('type','CPE')->where('gender','female')->count();
-            // $SKEMALE = $this->students->allWithBuilder()->where('color', $color)->where('type','SKE')->where('gender','male')->count();
-            // $SKEFEMALE = $this->students->allWithBuilder()->where('color', $color)->where('type','SKE')->where('gender','female')->count();
             $total = $this->students->allWithBuilder()->where('color',$color)->count();
             $cpe = $this->students->allWithBuilder()->where('type','CPE')->count();
             $ske = $this->students->allWithBuilder()->where('type','SKE')->count();
