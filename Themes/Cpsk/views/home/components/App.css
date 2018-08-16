@@ -1,5 +1,10 @@
 body {
     /* background: rgba(255, 255, 128, .2); */
+    background-image: url('../cpsk.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: -15%;
+    background-size: auto;
 }
 
 .header {

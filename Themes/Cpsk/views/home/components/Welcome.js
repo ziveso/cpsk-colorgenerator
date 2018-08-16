@@ -6,7 +6,6 @@ import { observer } from 'mobx-react'
 export class Welcome extends React.Component {
     render() {
         const { lastGenerated, isGenerated, firstCome } = this.props.store
-        console.log(firstCome);
         if(firstCome)
             return <div></div>
         return (

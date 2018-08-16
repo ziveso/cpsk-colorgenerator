@@ -7,7 +7,7 @@ export class History extends React.Component {
     render() {
         const { history } = this.props.store
         var hiscomp = history.map((item,id) => {
-            return <div key={`card-${id}`} className={`card ${item.color} text-center`}>{item.name}</div>
+            return <div key={`card-${id}`} className={`card ${item.color} text-center`}>{item.name}  <i className={`fas fa-${item.gender}`}></i></div>
         }) 
 
         hiscomp = hiscomp.reverse()

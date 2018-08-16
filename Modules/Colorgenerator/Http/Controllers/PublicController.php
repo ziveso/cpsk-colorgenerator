@@ -31,7 +31,7 @@ class PublicController extends BasePublicController
     public function create(Request $request) {
         $studentid = $request->data['studentId'];
         $type = strpos($studentid, '611054') !== false ? 'SKE' : 'CPE';
-        $gender = in_array($studentid, $this->getStudentdata()['male']) ? 'male' : 'female';
+        $gender = in_array($studentid, $this->getStudentdata()['female']) ? 'female' : 'male';
 
         $currentColor = $this->getCurrentLength();
 
@@ -133,6 +133,7 @@ class PublicController extends BasePublicController
         $data = [];
         $data['name'] = $studentid;
         $data['color'] = $color;
+        $data['gender'] = $gender;
         
         return $data;
     }

@@ -1,7 +1,7 @@
 .center-on-screen {
     position: fixed;
     top: 50%;
-    left: 30%;
+    left: 280px;
     transform: translate(-50%,-50%);
     width: 100%;
     max-width: 500px;
@@ -30,6 +30,20 @@
     background: #ecfc76;
     text-shadow: 0 0 15px black;
     transition: 0.5s ease-in-out;
+}
+
+.validated {
+    color: lime;
+    text-shadow: 0 0 15px black;
+}
+
+.inValidate {
+    color: red;
+}
+
+.validated.female {
+    color: #f442bc;
+    text-shadow: 0 0 15px black;
 }
 
 @media (max-width: 768px) {
