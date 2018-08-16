@@ -143,10 +143,10 @@ class PublicController extends BasePublicController
         $data = [];
         foreach($colors as $color) {
             $total = $this->students->allWithBuilder()->where('color',$color)->count();
-            $cpe = $this->students->allWithBuilder()->where('type','CPE')->count();
-            $ske = $this->students->allWithBuilder()->where('type','SKE')->count();
-            $male = $this->students->allWithBuilder()->where('gender','male')->count();
-            $female = $this->students->allWithBuilder()->where('gender','female')->count();
+            $cpe = $this->students->allWithBuilder()->where('color',$color)->where('type','CPE')->count();
+            $ske = $this->students->allWithBuilder()->where('color',$color)->where('type','SKE')->count();
+            $male = $this->students->allWithBuilder()->where('color',$color)->where('gender','male')->count();
+            $female = $this->students->allWithBuilder()->where('color',$color)->where('gender','female')->count();
 
             $data[$color] = compact('cpe','ske','male','female','total');
         }
@@ -156,5 +156,9 @@ class PublicController extends BasePublicController
 
     public function download() {
         return Excel::download(new Student, 'studentdata.xlsx');
+    }
+
+    public function getAllStudent() {
+        return $this->students->all();
     }
 }

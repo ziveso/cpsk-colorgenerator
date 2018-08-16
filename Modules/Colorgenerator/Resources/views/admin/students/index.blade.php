@@ -15,6 +15,49 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header">
+                    Current students
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="data-table table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>color</th>
+                                    <th>cpe</th>
+                                    <th>ske</th>
+                                    <th>male</th>
+                                    <th>female</th>
+                                    <th>total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($data as $key => $value)
+                                    <tr>
+                                        <td>{{ $key }}</td>
+                                        <td>{{ $value['cpe'] }}</td>
+                                        <td>{{ $value['ske'] }}</td>
+                                        <td>{{ $value['male'] }}</td>
+                                        <td>{{ $value['female'] }}</td>
+                                        <td>{{ $value['total'] }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>color</th>
+                                    <th>cpe</th>
+                                    <th>ske</th>
+                                    <th>male</th>
+                                    <th>female</th>
+                                    <th>total</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box box-primary">
+                <div class="box-header">
                     <div class="text-right">
                     <a href={{ route('student.download') }}>Download</a>
                     </div>

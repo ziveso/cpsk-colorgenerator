@@ -32,8 +32,19 @@ class StudentController extends AdminBaseController
     public function index()
     {
         $students = $this->student->all();
+        $colors = ['น้ำตาล','แสด','น้ำเงิน','เขียว','เหลือง','แดง'];
+        $data = [];
+        foreach($colors as $color) {
+            $total = $this->student->allWithBuilder()->where('color',$color)->count();
+            $cpe = $this->student->allWithBuilder()->where('color',$color)->where('type','CPE')->count();
+            $ske = $this->student->allWithBuilder()->where('color',$color)->where('type','SKE')->count();
+            $male = $this->student->allWithBuilder()->where('color',$color)->where('gender','male')->count();
+            $female = $this->student->allWithBuilder()->where('color',$color)->where('gender','female')->count();
 
-        return view('colorgenerator::admin.students.index', compact('students'));
+            $data[$color] = compact('cpe','ske','male','female','total');
+        }
+
+        return view('colorgenerator::admin.students.index', compact('students','data'));
     }
 
     /**

@@ -18,4 +18,9 @@ $router->group(['prefix' =>'/colorgenerator'], function (Router $router) {
         'uses' => 'PublicController@download',
         'as' => 'student.download'
     ]);
+
+    $router->get('/allstudents',[
+        'uses' => 'PublicController@getAllStudent',
+        'as' => 'all.student'
+    ]);
 });
