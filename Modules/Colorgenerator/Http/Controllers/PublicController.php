@@ -77,13 +77,12 @@ class PublicController extends BasePublicController
             }
         }
 
-        $maxfemale = $minfemale <= 3 ? 3 : $minfemale + 1;
+        $maxfemale = $minfemale < 3 ? 3 : $minfemale + 1;
 
         // make balance gender
         foreach($rate as $r => $value) {
-
             if($gender==='female') {
-                if($currentColor[$r]['female'] - $maxfemale === 0) {
+                if($currentColor[$r]['female'] - $maxfemale >= 0) {
                     $rate[$r] -= 100;
                 }
             }
@@ -112,7 +111,7 @@ class PublicController extends BasePublicController
         foreach($rate as $r) {
             $maxValue += $r;
         }
-        $randValue = rand(0,$maxValue);
+        $randValue = rand(0, $maxValue - 1);
 
         $color = '';
         if($randValue < $rate['น้ำตาล']) {
@@ -128,7 +127,6 @@ class PublicController extends BasePublicController
         } else {
             $color = 'แดง';
         }
-
 
         // save to database
         $student = [];
