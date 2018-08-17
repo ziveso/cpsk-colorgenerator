@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>CPSK FRESHY CAMP 2018</title>
 
     <link rel="stylesheet" href="{{ asset('themes/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css') }}"/>
     <script src="{{ asset('themes/adminlte/vendor/jquery/jquery.min.js') }}"></script>
+    <link rel="shortcut icon" href="{{ asset('themes/cpsk/images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('themes/cpsk/images/favicon.ico') }}" type="image/x-icon">
     @stack('css-stack')
 </head>
 <body>
