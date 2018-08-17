@@ -30,6 +30,15 @@ class PublicController extends BasePublicController
 
     public function create(Request $request) {
         $studentid = $request->data['studentId'];
+        $student = $this->students->findByAttributes(['studentId' => $studentid]);
+        if(isset($student)) {
+            $data = [];
+            $data['name'] = $studentid;
+            $data['color'] = $student->color;
+            $data['gender'] = $student->gender;
+            return $data;
+        }
+
         $type = strpos($studentid, '611054') !== false ? 'SKE' : 'CPE';
         $gender = in_array($studentid, $this->getStudentdata()['female']) ? 'female' : 'male';
 
